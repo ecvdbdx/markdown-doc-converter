@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { getCommentsFromText, createMarkdownFromComments, startIdentifier, endIdentifier } from './core.mjs'
+import { getCommentsFromText, createMarkdownFromComments, startIdentifier, endIdentifier } from './index.mjs'
 
 const singleCommentInput = `
 ${startIdentifier}
