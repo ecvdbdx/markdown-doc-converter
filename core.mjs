@@ -1,3 +1,5 @@
+import compose from 'lodash/fp/compose.js'
+
 export const startIdentifier = '/*DOC'
 export const endIdentifier = '*/'
 export const mdBlankLine = '\n\n'
@@ -49,3 +51,8 @@ export function createMarkdownFromComments(comments) {
 
   return markdown
 }
+
+export const generateDocumentation = compose(
+  createMarkdownFromComments,
+  getCommentsFromText
+)
