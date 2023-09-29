@@ -8,7 +8,8 @@
         "fs": "node packages/fs.mjs",
         "clean": "rm -rf ./playground/*.md",
         "lint": "eslint ./**/*.mjs",
-        "format": "prettier . --write"
+        "format": "prettier . --write",
+        "prepare": "husky install"
     },
     "author": "",
     "license": "MIT",
@@ -19,6 +20,8 @@
         "eslint": "^8.50.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^14.0.1",
         "prettier": "3.0.3"
     }
 }
