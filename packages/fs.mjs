@@ -6,9 +6,9 @@ const rootDir = process.cwd()
 const filePath = path.join(rootDir, 'playground/test.mjs')
 
 try {
-  const file = await readFile(filePath, 'utf-8')
-  const documentation = generateDocumentation(file)
-  writeFile(path.join(rootDir, 'playground/test.md'), documentation)
-} catch(e) {
-  throw new Error(e)
+    const file = await readFile(filePath, 'utf-8')
+    const documentation = generateDocumentation(file)
+    writeFile(path.join(rootDir, 'playground/test.md'), documentation)
+} catch (e) {
+    throw new Error(e)
 }
