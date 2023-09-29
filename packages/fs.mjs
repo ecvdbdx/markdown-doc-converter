@@ -1,14 +1,19 @@
-import { writeFile, readFile } from 'node:fs/promises'
-import path from 'node:path'
-import { generateDocumentation } from './core/index.mjs'
+import { writeFile, readFile } from "node:fs/promises";
+import path from "node:path";
+import { generateDocumentation } from "./core/index.mjs";
 
-const rootDir = process.cwd()
-const filePath = path.join(rootDir, 'playground/test.mjs')
+export async function createFile(pathOfFileIn, pathOfFileOut) {
+  const rootDir = process.cwd();
+  const filePath = path.join(rootDir, pathOfFileIn);
+  try {
+    const file = await readFile(filePath, "utf-8");
+    const documentation = generateDocumentation(file);
 
-try {
-  const file = await readFile(filePath, 'utf-8')
-  const documentation = generateDocumentation(file)
-  writeFile(path.join(rootDir, 'playground/test.md'), documentation)
-} catch(e) {
-  throw new Error(e)
+    if (!pathOfFileOut) {
+      pathOfFileOut = pathOfFileIn.replace(/\.mjs$/, "");
+    }
+    await writeFile(path.join(rootDir, pathOfFileOut + ".md"), documentation);
+  } catch (e) {
+    throw new Error(e);
+  }
 }
