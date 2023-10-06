@@ -6,6 +6,7 @@
     "scripts": {
         "test": "node --test",
         "fs": "node packages/fs.mjs",
+        "start:server": "node packages/server/index.mjs",
         "clean": "rm -rf ./playground/*.md",
         "lint": "eslint ./**/*.mjs",
         "format": "prettier . --write",
@@ -14,6 +15,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
+        "fastify": "^4.23.2",
         "lodash": "^4.17.21"
     },
     "devDependencies": {
